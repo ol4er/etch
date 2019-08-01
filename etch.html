@@ -14,20 +14,18 @@
                 border: solid black 4px;
                 align-content: center;
                 text-align: center;
-                width: 60%;
-                height: 60%;
+                width: 960px;
+                height: 680px;
             }
             .grid-square {
-                height: 40px;
-                height: 40px;
+                height: 2em;
                 padding: 0px;
                 margin: 0px;
                 text-align: center;
             }
             .grid-square-hover {
                 
-                height: 40px;
-                height: 40px;
+                height: 2em; 
                 padding: 0px;
                 margin: 0px;
                 text-align: center;
@@ -39,14 +37,35 @@
     </head>
     <body>
         <div id="grid-container"></div>
+        <button id="reset">Reset</button>
 
         <script>
-            const cont = document.querySelector('#grid-container');
+            const cont = document.querySelector('div');
             // cont.setAttribute('style', 'display: grid');
             //Trying a loop
+          function begin(){  
+              alert("this does nothing");
+            //   const child = document.querySelectorAll('.grid-square');
+            //   console.log(child);
+            // // 
+            // const n = child.length;
+            // let o;
+            // for(o = 0; o < n; o++){
+            // cont.removeChild(child[o]);
+            // console.log(o);
+            }
+
             let i;
-            let num = 16;
-            for (i = 0; i < num*num; i++) { 
+            let num = prompt("how many");
+            if(num <16 || num > 50){
+                divGen(16);
+            }
+                else{
+                    divGen(num);
+                }
+          
+function divGen(num){
+    for (i = 0; i < num*num; i++) { 
                 const div = document.createElement('div');  
                 div.classList.add('grid-square');
                 cont.appendChild(div);
@@ -57,9 +76,12 @@
                     div.addEventListener('mouseover',changeColor);
                 // div.setAttribute('style','background-color:blue');
                 }
+}
 
-                // const div = document.querySelector('.grid-square');
-                
+            
+                              
+                const resetButt = document.querySelector('#reset');
+                resetButt.addEventListener('click', begin);
                 
 
         
