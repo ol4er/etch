@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Etch</title>
+        <!-- <link rel="stylesheet" type="text/css" href="etch.css"> -->
+        <style>
+            body {
+                margin: 0px;
+            }
+            #grid-container {
+                display: grid;
+                grid-template-columns: auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto;
+                grid-template-rows: auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto;
+                border: solid black 4px;
+                align-content: center;
+                text-align: center;
+                width: 60%;
+                height: 60%;
+            }
+            .grid-square {
+                height: 40px;
+                height: 40px;
+                padding: 0px;
+                margin: 0px;
+                text-align: center;
+            }
+            .grid-square-hover {
+                
+                height: 40px;
+                height: 40px;
+                padding: 0px;
+                margin: 0px;
+                text-align: center;
+                transition-delay: all 0.07s ease;
+                background-color: black;
+            }
+
+        </style>
+    </head>
+    <body>
+        <div id="grid-container"></div>
+
+        <script>
+            const cont = document.querySelector('#grid-container');
+            // cont.setAttribute('style', 'display: grid');
+            //Trying a loop
+            let i;
+            let num = 16;
+            for (i = 0; i < num*num; i++) { 
+                const div = document.createElement('div');  
+                div.classList.add('grid-square');
+                cont.appendChild(div);
+                // div.textContent = i+1;
+                function changeColor(){            
+                    div.setAttribute('class','grid-square-hover');
+                    }
+                    div.addEventListener('mouseover',changeColor);
+                // div.setAttribute('style','background-color:blue');
+                }
+
+                // const div = document.querySelector('.grid-square');
+                
+                
+
+        
+        </script>
+    </body>
+
+</html>
