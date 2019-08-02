@@ -4,18 +4,19 @@
         <title>Etch</title>
         <!-- <link rel="stylesheet" type="text/css" href="etch.css"> -->
         <style>
-            body {
+            html {
                 margin: 0px;
+                box-sizing: border-box;
             }
             #grid-container {
                 display: grid;
-                grid-template-columns: auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto;
-                grid-template-rows: auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto;
+
+                grid-template-columns: repeat(50,auto);
+                /* grid-template-rows: repeat(16,auto); */
+                /* grid-template-columns: auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto; */
+                /* grid-template-rows: auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto; */
                 border: solid black 4px;
-                align-content: center;
-                text-align: center;
                 width: 960px;
-                height: 680px;
             }
             .grid-square {
                 height: 2em;
@@ -40,6 +41,9 @@
         <button id="reset">Reset</button>
 
         <script>
+
+
+            //NOTES: Create a start button that initialises the page. auto start with 16, reset prompts number, to fit the container, also make a button that snapshots finished product and prints it
             const cont = document.querySelector('div');
             // cont.setAttribute('style', 'display: grid');
             //Trying a loop
