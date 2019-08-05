@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Etch</title>
+        <!-- <link rel="stylesheet" type="text/css" href="etch.css"> -->
+        <style>
+            html {
+                margin: 0px;
+                box-sizing: border-box;
+            }
+            #grid-container {
+                width: 640px;
+                height: 640px;
+                display: grid;
+                border: solid black 4px;
+               
+
+            }
+
+            .grid-square {
+             background-color: aqua;
+             
+            }
+            .grid-square-hover {
+            
+                transition-delay: all 0.07s ease;
+                background-color: black;
+            }
+
+        </style>
+    </head>
+    <body>
+        <div id="grid-container"></div>
+        <button id="reset">Reset</button>
+
+        <script>
+
+
+            //NOTES: Create a start button that initialises the page. auto start with 16, reset prompts number, to fit the container, also make a button that snapshots finished product and prints it
+            const cont = document.querySelector('#grid-container');
+            // cont.setAttribute('style', 'display: grid');
+            //Trying a loop
+
+            const reset = document.querySelector('#reset');
+            reset.addEventListener('click',begin);
+          
+          function begin(){  
+            let int = prompt("enter an int");
+            divGen(int);
+            console.log(int);
+            
+            }
+
+window.onload = divGen(16);
+function divGen(num){
+    cont.innerHTML = '';
+    cont.style.gridTemplateColumns = `repeat(${num}, minmax(1px,1fr))`;
+    cont.style.gridTemplateRows = `repeat(${num}, minmax(1px,1fr))`;
+
+    for (i = 0; i < num*num; i++) { 
+                const div = document.createElement('div');
+                div.classList.add('grid-square');
+                cont.appendChild(div);      
+                div.addEventListener('mouseover',changeColor);
+                            
+                function changeColor(){            
+                    div.setAttribute('class','grid-square-hover');
+                    }  
+            }
+}
+
+
+        
+        </script>
+    </body>
+
+</html>
