@@ -2,7 +2,7 @@
 <html>
     <head>
         <title>Etch</title>
-        <!-- <link rel="stylesheet" type="text/css" href="etch.css"> -->
+        <link media="print" href="print.css">
         <style>
             html {
                 margin: 0px;
@@ -27,11 +27,26 @@
                 background-color: black;
             }
 
+            @media print {
+                    #reset {
+                        display: none;
+                    }
+                    #print {
+                        display: none;
+                    }
+                    .grid-square {
+                        background-color: white;
+                    }
+                }
+                
+            
+
         </style>
     </head>
     <body>
         <div id="grid-container"></div>
         <button id="reset">Reset</button>
+        <button id="print">Print</button>
 
         <script>
 
@@ -52,10 +67,14 @@
             }
 
 window.onload = divGen(16);
+
+
 function divGen(num){
     cont.innerHTML = '';
-    cont.style.gridTemplateColumns = `repeat(${num}, minmax(1px,1fr))`;
-    cont.style.gridTemplateRows = `repeat(${num}, minmax(1px,1fr))`;
+   const gridCont = document.querySelector('#grid-container');
+   console.log(gridCont);
+    gridCont.style.gridTemplateColumns = `repeat(${num}, minmax(1px,1fr))`;
+    gridCont.style.gridTemplateRows = `repeat(${num}, minmax(1px,1fr))`;
 
     for (i = 0; i < num*num; i++) { 
                 const div = document.createElement('div');
@@ -68,7 +87,13 @@ function divGen(num){
                     }  
             }
 }
+function printButt(){
+    window.print();
+}
 
+const print = document.querySelector('#print');
+print.addEventListener('click',printButt);
+console.log(print);
 
         
         </script>
